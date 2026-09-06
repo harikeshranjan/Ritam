@@ -62,7 +62,7 @@ export default function Header() {
                 {/* Logo */}
                 <Link
                     href="/"
-                    className="font-semibold text-xl text-amber-600 dark:text-amber-500 tracking-tight"
+                    className="font-semibold text-xl text-orange-600 dark:text-orange-500 tracking-tight"
                 >
                     Ritam
                 </Link>
