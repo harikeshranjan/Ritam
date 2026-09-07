@@ -58,7 +58,7 @@ export default function Header() {
 
     return (
         <header className="sticky top-4 z-50 flex items-center justify-center px-4">
-            <div className="w-full max-w-4xl flex flex-row items-center justify-between border border-black/10 dark:border-white/10 rounded-xl backdrop-blur-xl bg-white/70 dark:bg-neutral-900/70 shadow-sm px-6 py-2.5">
+            <div className="w-full max-w-4xl flex flex-row items-center justify-between border border-black/10 dark:border-white/10 rounded-xl backdrop-blur bg-white/70 dark:bg-neutral-900/40 shadow-sm px-6 py-2.5">
                 {/* Logo */}
                 <Link
                     href="/"
