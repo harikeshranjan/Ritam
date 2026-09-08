@@ -1,11 +1,73 @@
 import { Button } from "@/components/ui/button";
 import {
+    ArrowRight,
     Bookmark,
     BookOpen,
     BookOpenCheck,
+    Brain,
+    Building2,
     MoveRight,
+    Music,
+    PartyPopper,
     Sparkles,
 } from "lucide-react";
+
+const libraryCardsData = [
+    {
+        header: "Canon",
+        title: "Scriptures",
+        description:
+            "Vedas, Upanishads, Bhagavad Gita, Itihāsas, and Puranas in multi-tier philological alignment with traditional commentaries.",
+        icon: BookOpen,
+        footer_note: "4 Vedas · 108 Upanishads",
+        color: "#c85a17",
+    },
+    {
+        header: "Iconography",
+        title: "Deities",
+        description:
+            "Symbolism, iconographical canons (Shilpa Shastra), anthropomorphic metaphysical attributes, and regional living lineages.",
+        icon: Sparkles,
+        footer_note: "Shaiva · Vaishnava · Shakta",
+        color: "#c85a17",
+    },
+    {
+        header: "Sound Resonance",
+        title: "Mantras",
+        description:
+            "Rigorous phonetic accents, metric meters (Chhandas), root etymology, authenticated audio pronunciations, and integrated japa practices.",
+        icon: Music,
+        footer_note: "Gayatri · Rudram · Suktas",
+        color: "#c85a17",
+    },
+    {
+        header: "Darshanas",
+        title: "Philosophy",
+        description:
+            "In-depth, non-dogmatic investigation of Dharma, Karma, Moksha, Ātman, and Brahman across the six orthodox and heterodox systems.",
+        icon: Brain,
+        footer_note: "Advaita · Samkhya · Yoga",
+        color: "#c85a17",
+    },
+    {
+        header: "Cycles",
+        title: "Festivals",
+        description:
+            "Astronomical alignments, lunar tithis, sacred seasonal rites, and the metaphysical allegories underpinning pan-Indian celebrations.",
+        icon: PartyPopper,
+        footer_note: "Panchanga · Solstices",
+        color: "#c85a17",
+    },
+    {
+        header: "Sacred Spaces",
+        title: "Temples",
+        description:
+            "Sacred architecture, Vastu Purusha Mandala matrices, stone acoustics, living pilgrimage routes, and historical epigraphy.",
+        icon: Building2,
+        footer_note: "Nagara · Dravida · Vesara",
+        color: "#c85a17",
+    },
+] as const;
 
 export default function Home() {
     return (
@@ -192,6 +254,81 @@ export default function Home() {
             </div>
 
             {/* Third section */}
+            <div className="w-full bg-neutral-50 px-6 py-20 dark:bg-neutral-950 lg:px-20">
+                <div className="mx-auto max-w-7xl">
+                    {/* Section Header */}
+                    <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                        <div className="max-w-xl">
+                            <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#c85a17]">
+                                THE CURATED ARCHIVE
+                            </p>
+
+                            <h2 className="font-serif text-4xl tracking-tight text-neutral-900 sm:text-5xl dark:text-neutral-100">
+                                Explore the Tradition
+                            </h2>
+                        </div>
+
+                        <p className="max-w-lg text-sm leading-7 text-neutral-500 dark:text-neutral-400 lg:text-right">
+                            A living digital library organized along classical
+                            taxonomy, harmonizing primary canonical revelation
+                            with scholarly concordance.
+                        </p>
+                    </div>
+
+                    {/* Archive Grid */}
+                    <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                        {libraryCardsData.map((card, index) => (
+                            <div
+                                key={index}
+                                className="group flex min-h-75 flex-col justify-between rounded-xl border border-neutral-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-950/5 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-orange-900"
+                            >
+                                {/* Card Top */}
+                                <div>
+                                    <div className="flex items-center justify-between">
+                                        <p className="text-[11px] uppercase font-semibold tracking-[0.18em] text-[#c85a17]">
+                                            0{index + 1} / {card.header}
+                                        </p>
+
+                                        <card.icon
+                                            size={18}
+                                            strokeWidth={1.5}
+                                            className="text-neutral-400 transition-colors group-hover:text-[#c85a17]"
+                                        />
+                                    </div>
+
+                                    <div className="mt-10">
+                                        <h3 className="font-serif text-3xl tracking-tight text-neutral-900 dark:text-neutral-100">
+                                            {card.title}
+                                        </h3>
+
+                                        <p className="mt-4 text-sm leading-7 text-neutral-500 dark:text-neutral-400">
+                                            {card.description}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Card Bottom */}
+                                <div className="mt-10 flex items-center justify-between border-t border-neutral-100 pt-5 dark:border-neutral-800">
+                                    <p className="text-xs font-medium text-neutral-400">
+                                        {card.footer_note}
+                                    </p>
+
+                                    <Button
+                                        variant="ghost"
+                                        className="gap-2 px-0 text-sm text-[#c85a17] hover:bg-transparent hover:text-[#a8480f]"
+                                    >
+                                        Open Texts
+                                        <ArrowRight
+                                            size={15}
+                                            className="transition-transform duration-200 group-hover:translate-x-1"
+                                        />
+                                    </Button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
             {/* Fourth section */}
 
