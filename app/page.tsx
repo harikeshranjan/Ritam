@@ -10,6 +10,9 @@ import {
     Music,
     PartyPopper,
     Sparkles,
+    UserRound,
+    Network,
+    Scale,
 } from "lucide-react";
 
 const libraryCardsData = [
@@ -331,10 +334,254 @@ export default function Home() {
             </div>
 
             {/* Fourth section */}
+            <div className="w-full bg-[#faf8f6] px-6 py-20 dark:bg-neutral-950 lg:px-20">
+                <div className="mx-auto max-w-7xl">
+                    {/* Section Header */}
+                    <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#b84d0d]">
+                                ONTOLOGICAL CONNECTIONS
+                            </p>
+
+                            <h2 className="font-serif text-4xl tracking-tight text-neutral-900 sm:text-5xl dark:text-neutral-100">
+                                The Living Knowledge Graph
+                            </h2>
+                        </div>
+
+                        <div className="inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 bg-white px-4 py-2 text-xs font-medium tracking-[0.08em] text-neutral-600 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300">
+                            <span className="h-2 w-2 rounded-full bg-[#8a641c]" />
+                            Scholarly Entity Mapping
+                        </div>
+                    </div>
+
+                    {/* Graph Container */}
+                    <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-[0_12px_35px_rgba(0,0,0,0.08)] dark:border-neutral-800 dark:bg-neutral-900">
+                        {/* Graph Toolbar */}
+                        <div className="flex items-center justify-between px-6 pt-6">
+                            <div className="flex flex-wrap items-center gap-2">
+                                <span className="rounded-sm bg-[#fff1e9] px-3 py-1.5 text-xs font-semibold tracking-[0.08em] text-[#ad4b10] dark:bg-orange-950/30 dark:text-orange-400">
+                                    CENTRAL NODE: BHAGAVAD GITA
+                                </span>
+
+                                <span className="rounded-sm bg-neutral-100 px-3 py-1.5 text-xs font-medium tracking-[0.08em] text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
+                                    Epic Syntheses
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Graph */}
+                        <div className="relative mx-6 mt-4 h-90 overflow-hidden">
+                            {/* Connection Lines */}
+                            <svg
+                                className="absolute inset-0 h-full w-full"
+                                viewBox="0 0 1200 430"
+                                preserveAspectRatio="none"
+                            >
+                                {/* Krishna → Gita */}
+                                <line
+                                    x1="190"
+                                    y1="225"
+                                    x2="390"
+                                    y2="190"
+                                    stroke="#c85a17"
+                                    strokeWidth="1.5"
+                                    strokeDasharray="5 6"
+                                    opacity="0.25"
+                                />
+
+                                {/* Gita → Dharma */}
+                                <line
+                                    x1="390"
+                                    y1="190"
+                                    x2="590"
+                                    y2="250"
+                                    stroke="#8a641c"
+                                    strokeWidth="1.5"
+                                    opacity="0.2"
+                                />
+
+                                {/* Dharma → Karma */}
+                                <line
+                                    x1="590"
+                                    y1="250"
+                                    x2="790"
+                                    y2="200"
+                                    stroke="#c85a17"
+                                    strokeWidth="1.5"
+                                    strokeDasharray="5 6"
+                                    opacity="0.25"
+                                />
+
+                                {/* Karma → Vedanta */}
+                                <line
+                                    x1="790"
+                                    y1="200"
+                                    x2="1000"
+                                    y2="235"
+                                    stroke="#8a641c"
+                                    strokeWidth="1.5"
+                                    opacity="0.2"
+                                />
+
+                                {/* Connection points */}
+                                <circle
+                                    cx="190"
+                                    cy="225"
+                                    r="5"
+                                    fill="#c85a17"
+                                />
+
+                                <circle
+                                    cx="390"
+                                    cy="190"
+                                    r="5"
+                                    fill="#8a641c"
+                                />
+
+                                <circle
+                                    cx="590"
+                                    cy="250"
+                                    r="5"
+                                    fill="#c85a17"
+                                />
+
+                                <circle
+                                    cx="790"
+                                    cy="200"
+                                    r="5"
+                                    fill="#8a641c"
+                                />
+
+                                <circle
+                                    cx="1000"
+                                    cy="235"
+                                    r="5"
+                                    fill="#c85a17"
+                                />
+                            </svg>
+
+                            {/* Krishna */}
+                            <GraphNode
+                                className="left-[8%] top-[35%]"
+                                icon={<UserRound size={23} />}
+                                title="Krishna"
+                                subtitle="Avatāra / Teacher"
+                            />
+
+                            {/* Bhagavad Gita */}
+                            <GraphNode
+                                active
+                                className="left-[30%] top-[20%]"
+                                icon={<BookOpen size={25} />}
+                                title="Bhagavad Gita"
+                                subtitle="Core Canonical Text"
+                            />
+
+                            {/* Dharma */}
+                            <GraphNode
+                                className="left-[52%] top-[35%]"
+                                icon={<Scale size={24} />}
+                                title="Dharma"
+                                subtitle="Cosmic & Moral Order"
+                            />
+
+                            {/* Karma Yoga */}
+                            <GraphNode
+                                className="left-[72%] top-[20%]"
+                                icon={<Sparkles size={23} />}
+                                title="Karma Yoga"
+                                subtitle="Action Without Attachment"
+                            />
+
+                            {/* Vedanta */}
+                            <GraphNode
+                                className="left-[89%] top-[35%]"
+                                icon={<Network size={23} />}
+                                title="Vedānta"
+                                subtitle="Advaita / Viśiṣṭādvaita"
+                            />
+                        </div>
+
+                        {/* Footer */}
+                        <div className="mx-6 flex flex-col gap-5 border-t border-neutral-200 py-6 dark:border-neutral-800 lg:flex-row lg:items-center lg:justify-between">
+                            {/* Legend */}
+                            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-neutral-600 dark:text-neutral-400">
+                                <Legend
+                                    color="bg-[#b84d0d]"
+                                    label="Scriptural Revelation"
+                                />
+
+                                <Legend
+                                    color="bg-[#8a641c]"
+                                    label="Philosophical System"
+                                />
+
+                                <Legend
+                                    color="bg-neutral-400"
+                                    label="Historical Commentator"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Fifth section */}
 
             {/* Sixth section */}
         </section>
+    );
+}
+
+function GraphNode({
+    icon,
+    title,
+    subtitle,
+    className,
+    active = false,
+}: {
+    icon: React.ReactNode;
+    title: string;
+    subtitle: string;
+    className?: string;
+    active?: boolean;
+}) {
+    return (
+        <div
+            className={`absolute z-10 flex w-40 -translate-x-1/2 flex-col items-center text-center sm:w-48 ${className ?? ""}`}
+        >
+            <div
+                className={`flex h-10 w-10 items-center justify-center rounded-2xl transition-all ${
+                    active
+                        ? "bg-[#ffe0d0] text-[#a9470c] shadow-md shadow-orange-900/10 dark:bg-orange-950/50 dark:text-orange-400"
+                        : "bg-neutral-100 text-[#8a641c] dark:bg-neutral-800"
+                }`}
+            >
+                {icon}
+            </div>
+
+            <h3
+                className={`mt-3 font-serif text-xl font-semibold ${
+                    active
+                        ? "text-[#a9470c]"
+                        : "text-neutral-900 dark:text-neutral-100"
+                }`}
+            >
+                {title}
+            </h3>
+
+            <p className="mt-0.5 text-xs font-medium tracking-[0.04em] text-[#8a641c] dark:text-neutral-400">
+                {subtitle}
+            </p>
+        </div>
+    );
+}
+
+function Legend({ color, label }: { color: string; label: string }) {
+    return (
+        <span className="flex items-center gap-2">
+            <span className={`h-2.5 w-2.5 rounded-full ${color}`} />
+            {label}
+        </span>
     );
 }
