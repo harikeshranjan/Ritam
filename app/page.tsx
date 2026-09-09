@@ -13,6 +13,7 @@ import {
     UserRound,
     Network,
     Scale,
+    CircleCheck,
 } from "lucide-react";
 
 const libraryCardsData = [
@@ -527,6 +528,68 @@ export default function Home() {
             </div>
 
             {/* Fifth section */}
+            <div className="w-full bg-[#f8f7f5] px-6 py-20 dark:bg-neutral-950 lg:px-20">
+                <div className="mx-auto max-w-7xl">
+                    {/* Section Header */}
+                    <div className="max-w-3xl">
+                        <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#b84d0d]">
+                            SYSTEMATIC STUDY
+                        </p>
+
+                        <h2 className="font-serif text-4xl tracking-tight text-neutral-900 sm:text-5xl dark:text-neutral-100">
+                            Curated Learning Paths
+                        </h2>
+
+                        <p className="mt-4 max-w-2xl text-base leading-7 text-[#705c52] sm:text-lg dark:text-neutral-400">
+                            Structured, step-by-step curricula curated by
+                            scholars and traditional teachers to guide modern
+                            readers through primary sources.
+                        </p>
+                    </div>
+
+                    {/* Learning Path Cards */}
+                    <div className="mt-12 grid gap-6 lg:grid-cols-3">
+                        {/* Beginner */}
+                        <LearningPathCard
+                            category="BEGINNER PATH"
+                            categoryStyle="gold"
+                            count="5 Modules"
+                            title="Introduction to Vedānta"
+                            description="Explore the fundamental relationship between the individual Self (Ātman) and Supreme Reality (Brahman) across essential Upanishadic dialogues."
+                            topics={[
+                                "The Three States of Consciousness (Mandukya)",
+                                "Tat Tvam Asi: Etymology & Gloss",
+                            ]}
+                        />
+
+                        {/* Intermediate */}
+                        <LearningPathCard
+                            category="INTERMEDIATE TRACK"
+                            categoryStyle="orange"
+                            count="18 Chapters"
+                            title="Reading the Bhagavad Gita"
+                            description="A verse-by-verse philosophical breakdown analyzing action, devotion, knowledge, and inner crisis on the threshold of Kurukshetra."
+                            topics={[
+                                "Karmanyev Adhikaraste Deconstruction",
+                                "Comparative Commentaries: Shankara & Ramanuja",
+                            ]}
+                        />
+
+                        {/* Linguistic */}
+                        <LearningPathCard
+                            category="LINGUISTIC & ORAL"
+                            categoryStyle="gold"
+                            count="8 Modules"
+                            title="The Architecture of Sanskrit Mantras"
+                            description="Master the exact physiological articulation of the 50 phonemes, metric meters (Gayatri, Anushtubh), and harmonic resonance theory."
+                            topics={[
+                                "Vowel Accents: Udatta, Anudatta & Svarita",
+                                "Maha Mrityunjaya Meter Breakdown",
+                            ]}
+                        />
+                    </div>
+                </div>
+            </div>
 
             {/* Sixth section */}
         </section>
@@ -583,5 +646,81 @@ function Legend({ color, label }: { color: string; label: string }) {
             <span className={`h-2.5 w-2.5 rounded-full ${color}`} />
             {label}
         </span>
+    );
+}
+
+function LearningPathCard({
+    category,
+    categoryStyle,
+    count,
+    title,
+    description,
+    topics,
+}: {
+    category: string;
+    categoryStyle: "gold" | "orange";
+    count: string;
+    title: string;
+    description: string;
+    topics: string[];
+}) {
+    return (
+        <article className="group flex min-h-106.25 flex-col rounded-xl border border-neutral-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-neutral-900/5 dark:border-neutral-800 dark:bg-neutral-900">
+            {/* Card Header */}
+            <div className="flex items-center justify-between gap-4">
+                <span
+                    className={`rounded-sm px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] ${
+                        categoryStyle === "orange"
+                            ? "bg-[#f9e9df] text-[#b84d0d] dark:bg-orange-950/30 dark:text-orange-400"
+                            : "bg-[#eeece5] text-[#80601d] dark:bg-yellow-950/20 dark:text-yellow-500"
+                    }`}
+                >
+                    {category}
+                </span>
+
+                <span className="shrink-0 text-sm font-medium tracking-wide text-[#604f47] dark:text-neutral-400">
+                    {count}
+                </span>
+            </div>
+
+            {/* Card Content */}
+            <div className="mt-6">
+                <h3 className="font-serif text-2xl font-semibold leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
+                    {title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-[#705c52] dark:text-neutral-400">
+                    {description}
+                </p>
+            </div>
+
+            {/* Topics */}
+            <div className="mt-6 space-y-2.5">
+                {topics.map((topic) => (
+                    <div key={topic} className="flex items-start gap-2.5">
+                        <CircleCheck
+                            size={18}
+                            strokeWidth={2}
+                            className="mt-0.5 shrink-0 text-[#b84d0d]"
+                        />
+
+                        <p className="text-sm font-medium leading-5 tracking-wide text-[#604f47] dark:text-neutral-300">
+                            {topic}
+                        </p>
+                    </div>
+                ))}
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="mt-auto pt-8">
+                <Button className="h-11 w-full justify-center gap-3 rounded-sm bg-neutral-100 text-sm font-semibold tracking-[0.08em] text-neutral-900 shadow-none transition-all hover:bg-[#b84d0d] hover:text-white dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-[#b84d0d]">
+                    START TRACK
+                    <ArrowRight
+                        size={17}
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                    />
+                </Button>
+            </div>
+        </article>
     );
 }
