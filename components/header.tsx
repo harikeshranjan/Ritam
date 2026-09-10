@@ -42,13 +42,13 @@ const headerLinks: HeaderLink[] = [
         href: "/mantras",
         label: "Mantras",
         icon: Flower,
-        isComingSoon: true,
+        isComingSoon: false,
     },
     {
         href: "/temples",
         label: "Temples",
         icon: Home,
-        isComingSoon: false,
+        isComingSoon: true,
     },
 ] as const;
 
